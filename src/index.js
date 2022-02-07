@@ -10,7 +10,6 @@ import Home from './pages/Home.js';
 import Stats from './pages/Stats.js';
 import Table from './pages/Table.js';
 
-
 export default function App() {
   return (
     <BrowserRouter>
