@@ -20,7 +20,7 @@ const Navbar = () => {
                     <a className="nav-link" href="/table">Table</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Logout</a>
+                    <a className="nav-link" href="/logout">Logout</a>
                 </li>
                 </ul>
             </div>

@@ -9,6 +9,7 @@ import Login from './pages/Login.js';
 import Home from './pages/Home.js';
 import Stats from './pages/Stats.js';
 import Table from './pages/Table.js';
+import Logout from './pages/Logout';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<Home/>} />
         <Route path="table" element={<Table />}/>
         <Route path="stats" element={<Stats />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );
