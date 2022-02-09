@@ -1,6 +1,6 @@
 import React from 'react';
 
-class StatsComments extends React.Component {
+class StatsNoInterraction extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +10,7 @@ class StatsComments extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:9090/api/stats/comments",{
+        fetch("http://localhost:9090/api/stats/nointerraction",{
             credentials:'include'
         })
         .then(res => res.json())
@@ -31,15 +31,34 @@ class StatsComments extends React.Component {
     }
     render() {
         const { error,isLoaded,value } = this.state;
+        const values = this.state.value.map(function(table){
+            return <tr>
+                <td scope="row">{table.id}</td>
+                <td scope="row">{table.name}</td>
+            </tr>
+        })
         if (error) {
             return <div>Erreur : {error.message}</div>;
           } else if (!isLoaded) {
             return <div>Chargement…</div>;
           } else {
             return (
-              <span>{value.comments}</span>
+              <div>
+                  <table className='table'>
+                      <thead>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Name</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        {values}
+                      </tbody>
+
+                  </table>
+              </div>
             );
           }
     }
 }
-export default StatsComments;
+export default StatsNoInterraction;

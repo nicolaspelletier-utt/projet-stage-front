@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
   const [login,setLogin]=useState("");
   const [passwd,setPasswd]=useState("");
+  const [error,setError]=useState("");
   const history = useNavigate();
-  var erreur=<div>Coucou c'est moi</div>;
 
   async function connect() {
     //console.log(passwd);
@@ -28,8 +28,11 @@ const LoginForm = () => {
     .then((result) => {
       
       if (!result.logged) {
-        console.log("coucou");
-        history('/table')
+        
+        setError(<div><br/><div class="alert alert-danger" role="alert">
+        Mauvais Login/mot de passe<br/>Imposible de vous authentifier!
+      </div></div>);
+
       }
       else {
         history('/');
@@ -57,7 +60,7 @@ const LoginForm = () => {
   
 
   </div>
-  {erreur}
+  {error}
 </div> )
 }
 
