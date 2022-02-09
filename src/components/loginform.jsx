@@ -14,6 +14,7 @@ const LoginForm = () => {
     
     let result=await fetch("http://localhost:9090/api/login", {
       method: 'POST',
+      credentials: 'include',
       headers:{
         'Accept': 'application/json',
         'Content-Type': 'application/json',

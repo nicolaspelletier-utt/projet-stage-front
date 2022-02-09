@@ -12,7 +12,9 @@ class Logout extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:9090/api/logout")
+        fetch("http://localhost:9090/api/logout",{
+            credentials: 'include'
+        })
         .then(
             (result) => {
                 this.setState({

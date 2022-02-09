@@ -10,7 +10,9 @@ class StatsUsers extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:9090/api/stats/users")
+        fetch("http://localhost:9090/api/stats/users",{
+            credentials:'include'
+        })
         .then(res => res.json())
         .then(
             (result) => {

@@ -10,7 +10,9 @@ class StatsComments extends React.Component {
         };
     }
     componentDidMount() {
-        fetch("http://localhost:9090/api/stats/comments")
+        fetch("http://localhost:9090/api/stats/comments",{
+            credentials:'include'
+        })
         .then(res => res.json())
         .then(
             (result) => {
