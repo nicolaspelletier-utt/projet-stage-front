@@ -1,45 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+function StatsComments(props) {
+    const [error,setError] = useState("");
+    const [isLoaded,setIsLoaded] = useState(false);
+    const [value,setValue] = useState([]);
+    const begin=props.begin;
+    const end=props.end;
+    
 
-class StatsComments extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            value: []
-        };
-    }
-    componentDidMount() {
-        fetch("http://localhost:9090/api/stats/comments",{
-            credentials:'include'
-        })
+    useEffect(() => {
+        console.log(props);
+        fetch(`http://localhost:9090/api/stats/comments?begin=${begin}&end=${end}`,{
+            method: "GET",
+            credentials: "include"
+        },)
         .then(res => res.json())
-        .then(
-            (result) => {
-                this.setState({
-                    isLoaded: true,
-                    value: result
-                });
-            },
-            (error) => {
-                this.setState({
-                    isLoaded:true,
-                    error
-                });
-            }
-        )
+        .then((response) => {
+            setIsLoaded(true);
+            setValue(response)
+        },(error) => {
+            setError(error);
+            setIsLoaded(true);
+        });
+    },[begin,end])
+    if (!isLoaded) {
+        return (<div>Chargement . . .</div>);
     }
-    render() {
-        const { error,isLoaded,value } = this.state;
-        if (error) {
-            return <div>Erreur : {error.message}</div>;
-          } else if (!isLoaded) {
-            return <div>Chargement…</div>;
-          } else {
-            return (
-              <span>{value.comments}</span>
-            );
-          }
+    else if (isLoaded && error) {
+        return (<div>Erreur : {error}</div>);
     }
-}
+    else {
+        return (<div>{value.comments}</div>)
+    }
+} 
 export default StatsComments;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Navbar from '../components/navbar.jsx';
 import { Navigate } from 'react-router-dom';
 
@@ -8,8 +8,6 @@ import StatsNoInterraction from '../components/statsNoInterraction.jsx';
 function Stats() {
     const [begin,setBegin] = useState("");
     const [end,setEnd] = useState("");
-    const [beginTmp,setBeginTmp] = useState("");
-    const [endTmp,setEndTmp] = useState("");
     return (
         <div>
             <Navbar/>

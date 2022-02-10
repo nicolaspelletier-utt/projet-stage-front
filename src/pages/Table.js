@@ -5,8 +5,10 @@ function Table() {
 
     return (
         <div>
-            <Navbar/>
-            <h1>Page table</h1>
+            <Navbar/><br/><br/>
+            <div className="container">
+                <h1>Page table</h1>
+            </div>
         </div>
     );
 }
