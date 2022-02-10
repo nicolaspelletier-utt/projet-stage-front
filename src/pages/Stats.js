@@ -9,32 +9,11 @@ class Stats extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogged: true,
-            isLoaded: true,
             begin: '',
             end: ''
         };
     }
-    componentDidMount() {
-        
-        let result=fetch("http://localhost:9090/api/islogged", {
-          credentials: 'include'
-    
-        })
-        .then(res => res.json())
-        .then((result) => {
-          console.log(result);
-          if (!result.logged) {
-            this.setState({isLogged: false});
-          }
-          else {
-            this.setState({isLogged: true});
-          }
-          this.setState({isLoaded: true});
 
-          
-        });
-      }
       scope(begintmp,endTmp,coucou) {
         //this.setState({begin : begintmp, end: endTmp});
       }
@@ -43,7 +22,7 @@ class Stats extends React.Component {
         const {isLogged,isLoaded} = this.state;
         const begin='';
         const end='';
-        if (isLogged) {
+
             return <div>
             <Navbar/>
             <div className='container'>
@@ -71,13 +50,7 @@ class Stats extends React.Component {
             <br/><br/>
             </div>
         </div>
-        }
-        else if (!isLogged && !isLoaded) {
-            return <div>Chargement . . .</div>
-        }
-        else {
-            return <Navigate to="/login" />
-        }
+
        
     }
 }
