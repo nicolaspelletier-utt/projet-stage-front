@@ -19,7 +19,6 @@ class Stats extends React.Component {
       }
     render() {
         //this.connect();
-        const {isLogged,isLoaded} = this.state;
         const begin='';
         const end='';
 
@@ -29,13 +28,13 @@ class Stats extends React.Component {
                 <br/><br/>
             <h1>Page Stats</h1><br/><br/>
             <h4>Choix de la période : </h4>
-            <input type="date" id="begin" className="form-control" name="begin" onChange={(e)=> begin=e.target.value}></input>
-            <input type="date" id="end" className="form-control" name="end" onChange={(e)=> end=e.target.value}></input>
-            <input type="submit" className="btn btn-primary" value="Confirmer" onClick={this.scope(begin,end,this)}/>
+            <input type="date" id="begin" className="form-control" name="begin" ></input>
+            <input type="date" id="end" className="form-control" name="end" ></input>
+            <input type="submit" className="btn btn-primary" value="Confirmer" />
             <div className='container'>
             <h4>Nombre moyen de commentaire : </h4>
             <div className='container'><br/>
-            <p className='font-weight-bold'><StatsComments /></p>
+            <div className='font-weight-bold'><StatsComments /></div>
             </div>
             </div>
             <br/><br/>
