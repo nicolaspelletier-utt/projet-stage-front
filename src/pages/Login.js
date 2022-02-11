@@ -1,52 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginForm from '../components/loginform';
 import '../App.css';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+function Login() {
+  const navigate=useNavigate();
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        isLogged: false,
-        isLoaded: false
-    };
-}
-  componentDidMount() {
-    
-    let result=fetch("http://localhost:9090/api/islogged", {
+  useEffect(() => {
+    fetch("http://localhost:9090/api/islogged", {
       credentials: 'include'
-
     })
     .then(res => res.json())
     .then((result) => {
-      console.log(result);
-      if (!result.logged) {
-        this.setState({isLogged: false});
+      if (result.logged) {
+        navigate('/');
       }
-      else {
-        this.setState({isLogged: true});
-      }
-      this.setState({isLoaded: true});
-
-      
-    });
-  }
-  render() {
-    const {isLogged,isLoaded} = this.state;
-    if (isLogged) {
-      return <Navigate to ="/"/>
-    }
-    else {
-      return (
-        <div>
-          <br/><br/><br/>
-          <LoginForm/>
-  
-        </div>
-      )
-    }
-
-  }
+    })
+  })
+  return (
+    <div>
+      <br/><br/><br/>
+      <LoginForm />
+    </div>
+  );
 }
-
-export default Login; 
+export default Login;
