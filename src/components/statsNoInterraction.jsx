@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import DataTable from 'react-data-table-component'; 
+
 function StatsNoInterraction(props) {
     const [error,setError] = useState("");
     const [isLoaded,setIsLoaded] = useState(false);
@@ -7,7 +9,19 @@ function StatsNoInterraction(props) {
     const begin=props.begin;
     const end=props.end;
     const navigate=useNavigate();
-    
+    const columns = [
+        {
+          name: '#',
+          selector: 'id',
+          sortable: true,
+        },
+        {
+          name: 'Name',
+          selector: 'name',
+          sortable: true,
+        },
+
+      ];
 
     useEffect(() => {
         console.log(props);
@@ -27,13 +41,6 @@ function StatsNoInterraction(props) {
             setIsLoaded(true);
         });
     },[begin,end])
-    const values = value.map(function(table) {
-        return (
-            <tr>
-                <td scope="row">{table.id}</td>
-                <td scope="row">{table.name}</td>
-            </tr>);
-    })
     if (!isLoaded) {
         return (<div>Chargement . . .</div>);
     }
@@ -42,20 +49,13 @@ function StatsNoInterraction(props) {
     }
     else {
         return (<div>
-            <div>
-                  <table className='table'>
-                      <thead>
-                          <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Name</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        {values}
-                      </tbody>
-
-                  </table>
-              </div>
+                        <DataTable
+        title="Utilisateurs n'ayant pas eu d'interractions"
+        columns={columns}
+        data={value}
+        pagination
+        highlightOnHover  
+      />
         </div>)
     }
 } 
