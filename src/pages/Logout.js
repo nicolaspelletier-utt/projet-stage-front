@@ -1,6 +1,5 @@
 import React , {useState, useEffect} from 'react';
-import '../App.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Logout() {
     const [isLoaded,setIsLoaded] = useState("");
     const navigate=useNavigate();
@@ -8,7 +7,7 @@ function Logout() {
         fetch("http://localhost:9090/api/logout",{
             credentials: 'include'
         })
-        .then((result) => {
+        .then(() => {
             setIsLoaded(true);
             navigate('/login');
         })
@@ -19,6 +18,5 @@ function Logout() {
     else {
         return null;
     }
-
 }
 export default Logout;
