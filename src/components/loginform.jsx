@@ -9,9 +9,7 @@ const LoginForm = () => {
   const [error,setError]=useState("");
   const history = useNavigate();
 
-  async function connect() {
-    //console.log(passwd);
-    
+  async function connect() {    
     let result=await fetch("http://localhost:9090/api/login", {
       method: 'POST',
       credentials: 'include',
