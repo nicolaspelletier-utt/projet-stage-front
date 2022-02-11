@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import DataTable from 'react-data-table-component';
+
 function StatsUsers(props) {
     const [error,setError] = useState("");
     const [isLoaded,setIsLoaded] = useState(false);
@@ -7,7 +9,23 @@ function StatsUsers(props) {
     const begin=props.begin;
     const end=props.end;
     const navigate=useNavigate();
-    
+    const columns = [
+        {
+          name: '#',
+          selector: 'id',
+          sortable: true,
+        },
+        {
+          name: 'Name',
+          selector: 'name',
+          sortable: true,
+        },
+        {
+          name: 'Count',
+          selector: 'count',
+          sortable: true,
+        },
+      ];
 
     useEffect(() => {
         console.log(props);
@@ -27,14 +45,6 @@ function StatsUsers(props) {
             setIsLoaded(true);
         });
     },[begin,end])
-    const values = value.map(function(table) {
-        return (
-            <tr>
-                <td scope="row">{table.id}</td>
-                <td scope="row">{table.name}</td>
-                <td scope="row">{table.count}</td>
-            </tr>);
-    })
     if (!isLoaded) {
         return (<div>Chargement . . .</div>);
     }
@@ -43,21 +53,14 @@ function StatsUsers(props) {
     }
     else {
         return (<div>
-            <div>
-                  <table  className='table'>
-                      <thead>
-                          <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Count</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        {values}
-                      </tbody>
-
-                  </table>
-              </div>
+                  
+            <DataTable
+        title="Top 10 des Utilisateurs"
+        columns={columns}
+        data={value}
+        pagination
+        highlightOnHover       
+      />
         </div>)
     }
 }
