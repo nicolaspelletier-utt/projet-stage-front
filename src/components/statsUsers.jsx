@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import DataTable from 'react-data-table-component';
+import DataTable from 'react-data-table-component'; 
 
 function StatsUsers(props) {
     const [error,setError] = useState("");
@@ -9,6 +9,8 @@ function StatsUsers(props) {
     const begin=props.begin;
     const end=props.end;
     const navigate=useNavigate();
+
+    
     const columns = [
         {
           name: '#',
@@ -59,7 +61,7 @@ function StatsUsers(props) {
         columns={columns}
         data={value}
         pagination
-        highlightOnHover       
+        highlightOnHover  
       />
         </div>)
     }
