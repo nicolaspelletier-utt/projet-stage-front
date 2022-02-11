@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-function StatsUsers(props) {
+function StatsPosts(props) {
     const [error,setError] = useState("");
     const [isLoaded,setIsLoaded] = useState(false);
     const [value,setValue] = useState([]);
@@ -11,7 +11,7 @@ function StatsUsers(props) {
 
     useEffect(() => {
         console.log(props);
-        fetch(`http://localhost:9090/api/stats/users?begin=${begin}&end=${end}`,{
+        fetch(`http://localhost:9090/api/stats/posts?begin=${begin}&end=${end}`,{
             method: "GET",
             credentials: "include"
         },)
@@ -61,4 +61,4 @@ function StatsUsers(props) {
         </div>)
     }
 }
-export default StatsUsers;
+export default StatsPosts;

@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import StatsComments from '../components/statsComments.jsx';
 import StatsUsers from '../components/statsUsers.jsx';
 import StatsNoInterraction from '../components/statsNoInterraction.jsx';
+import StatsPosts from '../components/statsPosts.jsx';
 function Table() {
 
     const [begin,setBegin] = useState("");
@@ -34,6 +35,11 @@ function Table() {
             <div className='container'>
                 <h4>Top 10 des utiliseurs n'ayant pas interragis</h4><br/>
             <StatsNoInterraction begin={begin} end={end}/>
+            </div>
+            <br/><br/>
+            <div className='container'>
+                <h4>Répartition des posts par groups</h4><br/>
+            <StatsPosts begin={begin} end={end}/>
             </div>
             <br/><br/>
             </div>
