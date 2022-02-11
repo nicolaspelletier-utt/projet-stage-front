@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 function StatsComments(props) {
     const [error,setError] = useState("");
     const [isLoaded,setIsLoaded] = useState(false);
     const [value,setValue] = useState([]);
     const begin=props.begin;
     const end=props.end;
+    const navigate=useNavigate();
     
 
     useEffect(() => {
@@ -15,6 +17,9 @@ function StatsComments(props) {
         },)
         .then(res => res.json())
         .then((response) => {
+            if (response.notLogged) {
+                navigate('/login');
+            }
             setIsLoaded(true);
             setValue(response)
         },(error) => {
