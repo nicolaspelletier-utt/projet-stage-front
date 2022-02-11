@@ -1,46 +1,24 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import '../App.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-
-class Logout extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-        };
-    }
-    componentDidMount() {
+function Logout() {
+    const [isLoaded,setIsLoaded] = useState("");
+    const navigate=useNavigate();
+    useEffect(() => {
         fetch("http://localhost:9090/api/logout",{
             credentials: 'include'
         })
-        .then(
-            (result) => {
-                this.setState({
-                    isLoaded: true,
-                });
-            },
-            (error) => {
-                this.setState({
-                    isLoaded:true,
-                    error
-                });
-            }
-        )
+        .then((result) => {
+            setIsLoaded(true);
+            navigate('/login');
+        })
+    })
+    if (!isLoaded) {
+        return(<div><h4>Déconnexion en cours  . . </h4></div>)
     }
-    render() {
-        const { error,isLoaded,value } = this.state;
-        //const history = useNavigate();
+    else {
+        return null;
+    }
 
-        if (error) {
-            return <div>Erreur : {error.message}</div>;
-          } else if (!isLoaded) {
-            return <div>Déconnexion…</div>;
-          } else {
-            return <Navigate to="/login"/>
-          }
-    }
 }
-
-export default Logout; 
+export default Logout;
