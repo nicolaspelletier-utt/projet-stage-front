@@ -14,17 +14,17 @@ function StatsUsers(props) {
     const columns = [
         {
           name: '#',
-          selector: 'id',
+          selector: row => row.id,
           sortable: true,
         },
         {
           name: 'Name',
-          selector: 'name',
+          selector: row => row.name,
           sortable: true,
         },
         {
           name: 'Count',
-          selector: 'count',
+          selector: row => row.count,
           sortable: true,
         },
       ];
