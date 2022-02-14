@@ -22,7 +22,17 @@ function StatsNoInterraction(props) {
         },
 
       ];
-
+    const [filterText, setFilterText] = useState('');
+    const filteredItems = value.filter(
+          item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
+      );
+    const subHeaderComponentMemo = React.useMemo(() => {		
+		return (
+            <div>
+                <input type="text" id="search" placeholder="Filter By Name" aria-label="Search Input" onChange={e => setFilterText(e.target.value)}></input>
+            </div>
+		);
+	}, [filterText]);
     useEffect(() => {
         console.log(props);
         fetch(`http://localhost:9090/api/stats/nointerraction?begin=${begin}&end=${end}`,{
@@ -52,9 +62,12 @@ function StatsNoInterraction(props) {
                         <DataTable
         title="Utilisateurs n'ayant pas eu d'interractions"
         columns={columns}
-        data={value}
+        data={filteredItems}
         pagination
         highlightOnHover  
+        subHeader
+        subHeaderComponent={subHeaderComponentMemo}
+        persistTableHead
       />
         </div>)
     }
