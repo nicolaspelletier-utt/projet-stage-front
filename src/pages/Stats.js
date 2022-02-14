@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import StatsComments from '../components/statsComments.jsx';
 import StatsUsers from '../components/statsUsers.jsx';
 import StatsNoInterraction from '../components/statsNoInterraction.jsx';
-import StatsPosts from '../components/statsPosts.jsx';
+import ChartPosts from '../components/chartPosts.jsx';
 function Stats() {
     const [begin,setBegin] = useState("");
     const [end,setEnd] = useState("");
@@ -40,7 +40,7 @@ function Stats() {
             </div>
             <div className='container'>
             <h4>Répartition des posts par groups</h4><br/>
-            <StatsPosts begin={begin} end={end}/>
+            <ChartPosts begin={begin} end={end}/>
             </div>
             <br/><br/>
             </div>
