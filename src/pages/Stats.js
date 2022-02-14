@@ -3,7 +3,7 @@ import Navbar from '../components/navbar.jsx';
 import { Navigate } from 'react-router-dom';
 
 import StatsComments from '../components/statsComments.jsx';
-import StatsUsers from '../components/statsUsers.jsx';
+import ChartUsers from '../components/chartUsers.jsx';
 import StatsNoInterraction from '../components/statsNoInterraction.jsx';
 import ChartPosts from '../components/chartPosts.jsx';
 function Stats() {
@@ -30,7 +30,7 @@ function Stats() {
             <br/><br/>
             <div className='container'>
                 <h4>Top 10 des utiliseurs ayant le plus interragis</h4><br/>
-            <StatsUsers begin={begin} end={end}/>
+            <ChartUsers begin={begin} end={end}/>
             </div>
             <div className='container'>
                 <h4>Top 10 des utiliseurs n'ayant pas interragis</h4><br/>
