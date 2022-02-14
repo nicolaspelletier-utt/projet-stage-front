@@ -26,7 +26,17 @@ function StatsPosts(props) {
           sortable: true,
         },
       ];
-
+      const [filterText, setFilterText] = useState('');
+      const filteredItems = value.filter(
+            item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
+        );
+      const subHeaderComponentMemo = React.useMemo(() => {		
+          return (
+              <div>
+                  <input type="text" id="search" placeholder="Filter By Name" aria-label="Search Input" onChange={e => setFilterText(e.target.value)}></input>
+              </div>
+          );
+      }, [filterText]);
     useEffect(() => {
         console.log(props);
         fetch(`http://localhost:9090/api/stats/posts?begin=${begin}&end=${end}`,{
@@ -56,9 +66,12 @@ function StatsPosts(props) {
                         <DataTable
         title="Répartition des posts par groupe "
         columns={columns}
-        data={value}
+        data={filteredItems}
         pagination
         highlightOnHover  
+        subHeader
+        subHeaderComponent={subHeaderComponentMemo}
+        persistTableHead
       />
         </div>)
     }
