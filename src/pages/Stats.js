@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 import StatsComments from '../components/statsComments.jsx';
 import ChartUsers from '../components/chartUsers.jsx';
-import StatsNoInterraction from '../components/statsNoInterraction.jsx';
+import ChartUnresponsive from '../components/chartUnresponsive.jsx';
 import ChartPosts from '../components/chartPosts.jsx';
 function Stats() {
     const [begin,setBegin] = useState("");
@@ -34,7 +34,7 @@ function Stats() {
             </div>
             <div className='container'>
                 <h4 id="unresponsive">Unresponsive users</h4><br/>
-            <StatsNoInterraction begin={begin} end={end}/>
+            <ChartUnresponsive begin={begin} end={end}/>
             </div>
             <br/><br/>
             </div>
