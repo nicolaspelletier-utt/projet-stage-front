@@ -22,24 +22,24 @@ function Stats() {
             <input type="date" id="end" className="form-control" name="end" onChange={(e) => setEnd(e.target.value)}></input>
             </form>
             <div className='container'>
-            <h4>Average number of comments:  </h4>
+            <h4 id="comments">Average number of comments:  </h4>
             <div className='container'><br/>
             <div className='font-weight-bold'><StatsComments begin={begin} end={end}/></div>
             </div>
             </div>
             <br/><br/>
             <div className='container'>
-                <h4>Users with the most posts</h4><br/>
+                <h4 id="users">Users with the most posts</h4><br/>
             <ChartUsers begin={begin} end={end}/>
             </div>
             <div className='container'>
-                <h4>Unresponsive users</h4><br/>
+                <h4 id="unresponsive">Unresponsive users</h4><br/>
             <StatsNoInterraction begin={begin} end={end}/>
             </div>
             <br/><br/>
             </div>
             <div className='container'>
-            <h4>Distribution of posts by group</h4><br/>
+            <h4 id="posts">Distribution of posts by group</h4><br/>
             <ChartPosts begin={begin} end={end}/>
             </div>
             <br/><br/>

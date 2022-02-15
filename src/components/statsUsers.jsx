@@ -23,9 +23,19 @@ function StatsUsers(props) {
           sortable: true,
         },
         {
-          name: 'Count',
+          name: 'Posts',
           selector: row => row.count,
           sortable: true,
+        },
+        {
+           name: 'Reactions',
+           selector: row => row.reactions,
+           sortable: true,
+        },
+        {
+            name: 'Comments',
+            selector: row => row.comments,
+            sortable: true,
         },
       ];
       const [filterText, setFilterText] = useState('');
