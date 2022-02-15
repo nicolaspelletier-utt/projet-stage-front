@@ -12,23 +12,6 @@ function ChartPosts(props) {
     const begin=props.begin;
     const end=props.end;
     const navigate=useNavigate();
-    const columns = [
-        {
-          name: '#',
-          selector: row => row.id,
-          sortable: true,
-        },
-        {
-          name: 'Name',
-          selector: row => row.name,
-          sortable: true,
-        },
-        {
-          name: 'Count',
-          selector: row => row.count,
-          sortable: true,
-        },
-      ];
       const backgroundColor = [];
       const values = []
       const labels = [];

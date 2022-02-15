@@ -26,33 +26,11 @@ function ChartUnresponsive(props) {
     const begin=props.begin;
     const end=props.end;
     const navigate=useNavigate();
-    const columns = [
-        {
-          name: '#',
-          selector: row => row.id,
-          sortable: true,
-        },
-        {
-          name: 'Name',
-          selector: row => row.name,
-          sortable: true,
-        },
-        {
-          name: 'Count',
-          selector: row => row.count,
-          sortable: true,
-        },
-      ];
-      const backgroundColor = [];
       const values = [];
       const labels = [];
       const comments = [];
       const posts = [];
       value.map((obj) => {
-        var randomColor = "#000000".replace(/0/g, function () {
-          return (~~(Math.random() * 16)).toString(16);
-        });
-        backgroundColor.push(randomColor);
         values.push(obj.reactions);
         labels.push(obj.name);
         comments.push(obj.comments);
