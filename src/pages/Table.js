@@ -27,7 +27,7 @@ function Table() {
                         <div className='font-weight-bold'><StatsComments begin={begin} end={end}/></div>
                     </div>
                 </div>
-                <br/><br/>
+                <br/>
                 <div className='container'>
                     <StatsUsers begin={begin} end={end}/>
                 </div>

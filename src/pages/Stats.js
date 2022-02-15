@@ -27,11 +27,11 @@ function Stats() {
             <div className='font-weight-bold'><StatsComments begin={begin} end={end}/></div>
             </div>
             </div>
-            <br/><br/>
+            <br/>
             <div className='container'>
                 <h4 id="users">Users with the most posts</h4><br/>
             <ChartUsers begin={begin} end={end}/>
-            </div>
+            </div><br/>
             <div className='container'>
                 <h4 id="unresponsive">Unresponsive users</h4><br/>
             <ChartUnresponsive begin={begin} end={end}/>
