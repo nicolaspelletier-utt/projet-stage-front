@@ -69,7 +69,9 @@ function ChartPosts(props) {
         });
     },[begin,end])
     if (!isLoaded) {
-        return (<div>Loading . . .</div>);
+        return (<div className="spinner-border" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>);
     }
     else if (isLoaded && error) {
         return (<div>Error : {error}</div>);
