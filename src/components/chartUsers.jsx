@@ -44,8 +44,10 @@ function ChartUsers(props) {
         },
       ];
       const backgroundColor = [];
-      const values = []
+      const values = [];
       const labels = [];
+      const comments = [];
+      const reactions = [];
       value.map((obj) => {
         var randomColor = "#000000".replace(/0/g, function () {
           return (~~(Math.random() * 16)).toString(16);
@@ -53,15 +55,42 @@ function ChartUsers(props) {
         backgroundColor.push(randomColor);
         values.push(obj.count);
         labels.push(obj.name);
+        comments.push(obj.comments);
+        reactions.push(obj.reactions);
       });
+      const options = {
+        responsive: true,
+        scales: {
+          x : {
+            stacked: true,
+          },
+          y: {
+            stacked: true,
+          },
+        }
+      }
       const data = {
           labels,
-          datasets: [{
+          datasets: [
+            {
               label : "Posts",
               data: values,
-              backgroundColor: 'rgba(255, 99, 132, 0.5)',
+              backgroundColor: 'rgb(255, 99, 132)',
               borderWidth: 1
-          },],
+          },
+        {
+          label: "Comments",
+          data: comments,
+          backgroundColor: 'rgb(75,192,192)',
+          borderWidth: 1
+        },
+        {
+          label: "Reactions",
+          data: reactions,
+          backgroundColor: 'rgb(53,162,235)',
+          borderWidth: 1
+        },
+        ],
       };
     useEffect(() => {
         fetch(`http://localhost:9090/api/stats/users?begin=${begin}&end=${end}`,{
@@ -90,7 +119,7 @@ function ChartUsers(props) {
     }
     else {
         return (<div style={{width: '40%'}}>
-            <Bar data={data} />
+            <Bar data={data} options={options}/>
         </div>)
     }
 }
