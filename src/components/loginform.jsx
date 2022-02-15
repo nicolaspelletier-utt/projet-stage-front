@@ -27,7 +27,7 @@ const LoginForm = () => {
       
       if (!result.logged) {
         
-        setError(<div><br/><div class="alert alert-danger" role="alert">
+        setError(<div><br/><div className="alert alert-danger" role="alert">
         Wrong username/password<br/>Could not authenticate you
       </div></div>);
 
