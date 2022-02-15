@@ -36,7 +36,6 @@ const LoginForm = () => {
         history('/');
       }
       
-     console.log(result);
     });
   }
 

@@ -10,7 +10,6 @@ function StatsComments(props) {
     
 
     useEffect(() => {
-        console.log(props);
         fetch(`http://localhost:9090/api/stats/comments?begin=${begin}&end=${end}`,{
             method: "GET",
             credentials: "include"

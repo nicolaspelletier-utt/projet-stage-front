@@ -51,7 +51,6 @@ function ChartPosts(props) {
           },],
       };
     useEffect(() => {
-        console.log(props);
         fetch(`http://localhost:9090/api/stats/posts?begin=${begin}&end=${end}`,{
             method: "GET",
             credentials: "include"
