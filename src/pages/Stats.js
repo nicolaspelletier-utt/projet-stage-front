@@ -14,32 +14,32 @@ function Stats() {
             <Navbar/>
             <div className='container'>
                 <br/><br/>
-            <h1>Page Stats</h1><br/><br/>
-            <h4>Choix de la période : </h4>
+            <h1>Stats dashboard</h1><br/><br/>
+            <h4>Choice of period : </h4>
             <form className='form-group'>
             <input type="date" id="begin" className="form-control" name="begin" onChange={(e) => setBegin(e.target.value)}></input>
             <br/>
             <input type="date" id="end" className="form-control" name="end" onChange={(e) => setEnd(e.target.value)}></input>
             </form>
             <div className='container'>
-            <h4>Nombre moyen de commentaire : </h4>
+            <h4>Average number of comments:  </h4>
             <div className='container'><br/>
             <div className='font-weight-bold'><StatsComments begin={begin} end={end}/></div>
             </div>
             </div>
             <br/><br/>
             <div className='container'>
-                <h4>Top 10 des utiliseurs ayant le plus interragis</h4><br/>
+                <h4>Users with the most posts</h4><br/>
             <ChartUsers begin={begin} end={end}/>
             </div>
             <div className='container'>
-                <h4>Top 10 des utiliseurs n'ayant pas interragis</h4><br/>
+                <h4>Unresponsive users</h4><br/>
             <StatsNoInterraction begin={begin} end={end}/>
             </div>
             <br/><br/>
             </div>
             <div className='container'>
-            <h4>Répartition des posts par groups</h4><br/>
+            <h4>Distribution of posts by group</h4><br/>
             <ChartPosts begin={begin} end={end}/>
             </div>
             <br/><br/>

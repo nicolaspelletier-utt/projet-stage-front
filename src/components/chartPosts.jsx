@@ -43,7 +43,7 @@ function ChartPosts(props) {
       const data = {
           labels,
           datasets: [{
-              label : "Répartition des posts par groupe",
+              label : "Distribution of posts by group",
               data: values,
               backgroundColor,
               borderColor: backgroundColor,
@@ -69,10 +69,10 @@ function ChartPosts(props) {
         });
     },[begin,end])
     if (!isLoaded) {
-        return (<div>Chargement . . .</div>);
+        return (<div>Loading . . .</div>);
     }
     else if (isLoaded && error) {
-        return (<div>Erreur : {error}</div>);
+        return (<div>Error : {error}</div>);
     }
     else {
         return (<div style={{width: '40%'}}>

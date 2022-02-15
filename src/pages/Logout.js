@@ -13,7 +13,7 @@ function Logout() {
         })
     })
     if (!isLoaded) {
-        return(<div><h4>Déconnexion en cours  . . </h4></div>)
+        return(<div><h4>Disconnection in progress . . . </h4></div>)
     }
     else {
         return null;

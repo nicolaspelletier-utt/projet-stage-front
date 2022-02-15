@@ -28,7 +28,7 @@ const LoginForm = () => {
       if (!result.logged) {
         
         setError(<div><br/><div class="alert alert-danger" role="alert">
-        Mauvais Login/mot de passe<br/>Imposible de vous authentifier!
+        Wrong username/password<br/>Could not authenticate you
       </div></div>);
 
       }
@@ -45,7 +45,7 @@ const LoginForm = () => {
   <div id="formContent">
 
     <div className="fadeIn first">
-        <br/><h3>Connexion</h3>
+        <br/><h3>Login</h3>
     </div>
     
     

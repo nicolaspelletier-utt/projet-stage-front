@@ -56,10 +56,10 @@ function StatsPosts(props) {
         });
     },[begin,end])
     if (!isLoaded) {
-        return (<div>Chargement . . .</div>);
+        return (<div>Loading . . .</div>);
     }
     else if (isLoaded && error) {
-        return (<div>Erreur : {error}</div>);
+        return (<div>Error : {error}</div>);
     }
     else {
         return (<div>

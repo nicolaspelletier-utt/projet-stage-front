@@ -10,7 +10,7 @@ function Home() {
       <Navbar/>
       <div className='container'>
       <br/><br/>
-      <h1 className='display-6'>Bienvenue sur le projet préparatoire de Nicolas</h1>
+      <h1 className='display-6'>Welcome to Nicolas' training project</h1>
       </div> 
     </div>
   );

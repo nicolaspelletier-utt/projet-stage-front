@@ -58,16 +58,16 @@ function StatsUsers(props) {
         });
     },[begin,end])
     if (!isLoaded) {
-        return (<div>Chargement . . .</div>);
+        return (<div>Loading . . .</div>);
     }
     else if (isLoaded && error) {
-        return (<div>Erreur : {error}</div>);
+        return (<div>Error : {error}</div>);
     }
     else {
         return (<div>
                   
             <DataTable
-        title="Top 10 des Utilisateurs"
+        title="Users with the most posts"
         columns={columns}
         data={filteredItems}
         pagination

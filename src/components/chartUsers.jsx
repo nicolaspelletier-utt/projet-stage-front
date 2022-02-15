@@ -57,7 +57,7 @@ function ChartUsers(props) {
       const data = {
           labels,
           datasets: [{
-              label : "Interractions",
+              label : "Posts",
               data: values,
               backgroundColor: 'rgba(255, 99, 132, 0.5)',
               borderWidth: 1
@@ -82,10 +82,10 @@ function ChartUsers(props) {
         });
     },[begin,end])
     if (!isLoaded) {
-        return (<div>Chargement . . .</div>);
+        return (<div>Loading . . .</div>);
     }
     else if (isLoaded && error) {
-        return (<div>Erreur : {error}</div>);
+        return (<div>Error : {error}</div>);
     }
     else {
         return (<div style={{width: '40%'}}>
