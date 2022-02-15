@@ -41,7 +41,7 @@ function StatsUsers(props) {
       }, [filterText]);
     useEffect(() => {
         console.log(props);
-        fetch(`http://localhost:9090/api/stats/users?begin=${begin}&end=${end}`,{
+        fetch(`http://localhost:9090/api/table/users?begin=${begin}&end=${end}`,{
             method: "GET",
             credentials: "include"
         },)
