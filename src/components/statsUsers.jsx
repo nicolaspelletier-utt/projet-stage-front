@@ -39,12 +39,25 @@ function StatsUsers(props) {
         },
       ];
       const [filterText, setFilterText] = useState('');
-      const filteredItems = value.filter(
-            item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
-        );
       const subHeaderComponentMemo = React.useMemo(() => {		
-          return (
+        fetch(`http://localhost:9090/api/table/users?begin=${begin}&end=${end}&search=${filterText}`,{
+            method: "GET",
+            credentials: "include",
+        },)
+        .then(res => res.json())
+        .then((response) => {
+            if (response.notLogged) {
+                navigate('/login');
+            }
+            setIsLoaded(true);
+            setValue(response)
+        },(error) => {
+            setError(error);
+            setIsLoaded(true);
+        });  
+        return (
               <div>
+                  <p>You're actually searching for : {filterText}</p>
                   <input type="text" id="search" placeholder="Filter By Name" aria-label="Search Input" onChange={e => setFilterText(e.target.value)}></input>
               </div>
           );
@@ -81,7 +94,7 @@ function StatsUsers(props) {
             <DataTable
         title="Users with the most posts"
         columns={columns}
-        data={filteredItems}
+        data={value}
         pagination
         highlightOnHover  
         subHeader
