@@ -36,7 +36,7 @@ function StatsNoInterraction(props) {
     useEffect(() => {
         fetch(`http://localhost:9090/api/stats/nointerraction?begin=${begin}&end=${end}`,{
             method: "GET",
-            credentials: "include"
+            credentials: "include",
         },)
         .then(res => res.json())
         .then((response) => {

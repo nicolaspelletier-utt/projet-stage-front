@@ -53,7 +53,7 @@ function ChartUnresponsive(props) {
         {
           label : "Reactions",
           data: values,
-          backgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgb(53,162,235)',
           borderWidth: 1
         },
         {
@@ -65,7 +65,7 @@ function ChartUnresponsive(props) {
         {
           label: "Posts",
           data: posts,
-          backgroundColor: 'rgb(53,162,235)',
+          backgroundColor: 'rgb(255, 99, 132)',
           borderWidth: 1
         },
       ],
@@ -73,7 +73,7 @@ function ChartUnresponsive(props) {
     useEffect(() => {
       fetch(`http://localhost:9090/api/stats/unresponsive?begin=${begin}&end=${end}`,{
         method: "GET",
-        credentials: "include"
+        credentials: "include",
       },)
       .then(res => res.json())
       .then((response) => {

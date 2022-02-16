@@ -5,7 +5,7 @@ function Logout() {
     const navigate=useNavigate();
     useEffect(() => {
         fetch("http://localhost:9090/api/logout",{
-            credentials: 'include'
+            credentials: 'include',
         })
         .then(() => {
             setIsLoaded(true);

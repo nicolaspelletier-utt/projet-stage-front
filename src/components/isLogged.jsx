@@ -5,7 +5,7 @@ function IsLogged() {
   useEffect(() => {
     fetch(`http://localhost:9090/api/islogged`,{
       method: "GET",
-      credentials: "include"
+      credentials: "include",
     },)
     .then(res => res.json())
     .then((response) => {

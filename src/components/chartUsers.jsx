@@ -73,7 +73,7 @@ function ChartUsers(props) {
   useEffect(() => {
     fetch(`http://localhost:9090/api/stats/users?begin=${begin}&end=${end}`,{
       method: "GET",
-      credentials: "include"
+      credentials: "include",
     },)
     .then(res => res.json())
     .then((response) => {

@@ -52,7 +52,7 @@ function StatsUsers(props) {
     useEffect(() => {
         fetch(`http://localhost:9090/api/table/users?begin=${begin}&end=${end}`,{
             method: "GET",
-            credentials: "include"
+            credentials: "include",
         },)
         .then(res => res.json())
         .then((response) => {

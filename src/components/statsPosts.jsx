@@ -40,7 +40,7 @@ function StatsPosts(props) {
     useEffect(() => {
         fetch(`http://localhost:9090/api/stats/posts?begin=${begin}&end=${end}`,{
             method: "GET",
-            credentials: "include"
+            credentials: "include",
         },)
         .then(res => res.json())
         .then((response) => {
