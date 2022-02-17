@@ -57,7 +57,7 @@ function StatsUsers(props) {
         });  
         return (
               <div>
-                  <p>You're actually searching for : {filterText}</p>
+                  <p>You're currently searching for : {filterText}</p>
                   <input type="text" id="search" placeholder="Filter By Name" aria-label="Search Input" onChange={e => setFilterText(e.target.value)}></input>
               </div>
           );
