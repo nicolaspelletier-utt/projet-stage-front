@@ -47,7 +47,7 @@ function StatsNoInterraction(props) {
 		);
 	}, [filterText]);
     useEffect(() => {
-        fetch(`http://localhost:9090/api/stats/nointerraction?begin=${begin}&end=${end}`,{
+        fetch(`http://localhost:9090/api/stats/nointerraction?begin=${begin}&end=${end}&search=${filterText}`,{
             method: "GET",
             credentials: "include",
         },)
